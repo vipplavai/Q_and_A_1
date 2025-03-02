@@ -1,0 +1,7 @@
+streamlit
+pymongo
+dnspython
+python-dotenv
+urllib3
+Flask
+gunicorn
