@@ -3,7 +3,7 @@ function fetchContent() {
     $.get(`/content/${contentID}`, function(response) {
         if (response.status === "success") {
             $("#contentSection").show();
-            $("#contentText").text(response.content);
+            $("#contentText").val(response.content);  // Load content in large textbox
             $("#questionList").empty();
             response.questions.forEach(q => {
                 $("#questionList").append(

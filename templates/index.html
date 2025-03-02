@@ -15,9 +15,10 @@
         <input type="text" id="contentID" placeholder="Enter Content ID">
         <button onclick="fetchContent()">Fetch Content</button>
 
+        <!-- Display Content -->
         <div id="contentSection" style="display:none;">
             <h4>📚 Content:</h4>
-            <p id="contentText"></p>
+            <textarea id="contentText" readonly></textarea>
 
             <h4>📋 Existing Questions:</h4>
             <ul id="questionList"></ul>
