@@ -1,23 +1,17 @@
-from flask import Flask, jsonify
-from db import db, collection
+from flask import Flask, render_template
+from routes.content_routes import content_routes
+from routes.question_routes import question_routes
 
 app = Flask(__name__)
 
+# Register Routes
+app.register_blueprint(content_routes)
+app.register_blueprint(question_routes)
+
+# Home Route
 @app.route("/")
 def home():
-    return jsonify({"message": "Flask App Running!"})
-
-@app.route("/test-db")
-def test_db():
-    try:
-        # Check if we can fetch one document from the database
-        data = collection.find_one()
-        if data:
-            return jsonify({"status": "success", "message": "Connected to MongoDB", "sample_data": data})
-        else:
-            return jsonify({"status": "success", "message": "Connected, but no data found"})
-    except Exception as e:
-        return jsonify({"status": "error", "message": str(e)})
+    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
