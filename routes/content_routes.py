@@ -3,7 +3,7 @@ from models.db import collection
 
 content_routes = Blueprint("content_routes", __name__)
 
-# Fetch Content by Content ID
+# Fetch Content & Questions by Content ID
 @content_routes.route("/content/<content_id>", methods=["GET"])
 def get_content(content_id):
     content_data = collection.find_one({"content_id": content_id})
